@@ -58,11 +58,11 @@ void AMyPlayer::BeginPlay()
 void AMyPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	FVector ForwardVector = FVector(XInput, YInput, 0.f);
+	/*FVector ForwardVector = FVector(XInput, YInput, 0.f);
 	ForwardVector.Normalize();
 
 	FVector NewLocation = GetActorLocation() + (ForwardVector * MovementSpeed * DeltaTime);
-	SetActorLocation(NewLocation);
+	SetActorLocation(NewLocation);*/
 
 	AddControllerYawInput(Yaw);
 	AddControllerPitchInput(Pitch);
