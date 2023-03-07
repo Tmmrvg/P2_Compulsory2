@@ -5,7 +5,27 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/StarterContent/Audio/Collapse01.uasset"
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/StarterContent/Audio/Collapse01.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Blueprints/BP_MyPlayer.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Maps/Level.umap",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Materials/M_Bullet.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputContext.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_Forward.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Blueprints/BP_Bullet.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_Reload.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_Right.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_Shoot.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/StarterContent/Props/Materials/M_Chair.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_MouseX.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/IA_MouseY.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/MappingContext.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_Forward.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_MouseX.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_MouseY.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_Reload.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_Right.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/InputActions/IA_Shoot.uasset",
+				"D:/Programming II/Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Blueprints/BP_Target.uasset"
 			]
 		}
 	]

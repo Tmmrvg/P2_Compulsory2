@@ -9,6 +9,7 @@
 class USpringArmComponent;
 class UCameraComponent;
 class ABullet;
+struct FInputActionValue;
 
 UCLASS()
 class P2COMPULSORY2_API AMyPlayer : public APawn
@@ -44,7 +45,7 @@ public:
 
 	/** Blueprints: we set these in our blueprint */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
-	TSubclassOf<ABullet> Bullet_BP;
+	TSubclassOf<ABullet> BP_Bullet;
 
 	/** Public Variables */
 
@@ -60,20 +61,52 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	int Lives;
 
+
+	/** Public Function */
 	void HitByTarget();
 
 	/** Private Variables */
-	private:
+private:
 
 	float XInput;
 	float YInput;
+	float Yaw;
+	float Pitch;
+
+	void MouseX(const FInputActionValue& input);
+	void MouseY(const FInputActionValue& input);
+
 
 private:
 	/** Private Functions */
 
-	void Forward(float input);
-	void Right(float input);
+	void Forward(const FInputActionValue& input);
+	void Right(const FInputActionValue& input);
 
-	void Shoot();
-	void Reload();
+	void Shoot(const FInputActionValue& input);
+	void Reload(const FInputActionValue& input);
+
+public:
+	//Input
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputMappingContext* MappingContext;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* ForwardInput;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* RightInput;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* ShootInput;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* ReloadInput;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* MouseXInput;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+	class UInputAction* MouseYInput;
 };
