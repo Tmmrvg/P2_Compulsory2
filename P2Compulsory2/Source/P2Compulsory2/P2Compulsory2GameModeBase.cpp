@@ -5,11 +5,9 @@
 #include "Target.h"
 #include "MyPlayer.h"
 
-AMyPlayer* Player;
-
 AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 {
-	
+
 
 	PrimaryActorTick.bCanEverTick = true;
 	WaveSize.Add(10);
@@ -31,7 +29,7 @@ AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 	MaxY = 400;
 	GameWon = false;
 	Boolcheck = 0;
-	
+
 }
 
 void AP2Compulsory2GameModeBase::BeginPlay()
@@ -47,7 +45,7 @@ void AP2Compulsory2GameModeBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	Clock += DeltaTime;
 
-	if (Clock > WaveSpawnFrequency[CurrentWave - 1] && !GameWon==true)
+	if (Clock > WaveSpawnFrequency[CurrentWave - 1] && !GameWon == true)
 	{
 		Clock = 0.f;
 		FVector Location = FVector(FMath::RandRange(MinX, MaxX), FMath::RandRange(MinY, MaxY), 80);
@@ -65,15 +63,16 @@ void AP2Compulsory2GameModeBase::Tick(float DeltaTime)
 		}
 	}
 
-
+	Restart();
 }
 void AP2Compulsory2GameModeBase::ChangeWave(int wave)
 {
 	if (WaveSize.Num() < wave)
-	{	Boolcheck = 1;
+	{
+		Boolcheck = 1;
 		// Game Won
 		GameWon = true;
-		
+
 		return;
 	}
 
@@ -84,9 +83,14 @@ void AP2Compulsory2GameModeBase::ChangeWave(int wave)
 
 void AP2Compulsory2GameModeBase::Restart()
 {
-	if (GameWon && Player->CanRestart) {
-		CurrentWave = 0;
-		Player->CanRestart = false;
-		GameWon = false;
-	}
+	if (const APlayerController* pc = GetWorld()->GetFirstPlayerController())
+		if (AMyPlayer* Player = Cast<AMyPlayer>(pc->GetPawn()))
+			if (GameWon && Player->CanRestart) {
+				CurrentWave = 1;
+				LeftToSpawn = WaveSize[CurrentWave - 1];
+				
+					Player->CanRestart = false;
+					GameWon = false;
+				
+			}
 }

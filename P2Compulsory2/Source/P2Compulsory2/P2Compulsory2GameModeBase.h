@@ -6,7 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "P2Compulsory2GameModeBase.generated.h"
 
-class AMyPlayer;
+
 class ATarget;
 struct FInputActionValue;
 //struct Wave
