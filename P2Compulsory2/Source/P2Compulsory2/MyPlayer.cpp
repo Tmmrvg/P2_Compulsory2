@@ -14,7 +14,7 @@ AMyPlayer::AMyPlayer()
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	SetRootComponent(StaticMesh);
-	StaticMesh->SetRelativeLocation(FVector(0, 0, 0));
+	StaticMesh->SetRelativeLocation(FVector(0, 0, 40));
 	StaticMesh->SetRelativeScale3D(FVector(0.5f, 0.5f, 0.5f));
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
@@ -39,7 +39,7 @@ AMyPlayer::AMyPlayer()
 	CanRestart = false;
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 	checkRestart = 0;
-
+	GameOver = false;
 }
 
 
@@ -190,6 +190,8 @@ void AMyPlayer::HitByTarget()
 	Lives--;
 	if (Lives <= 0)
 	{
+		GameOver = true;
+		return;
 		// TODO : Game over
 	}
 }

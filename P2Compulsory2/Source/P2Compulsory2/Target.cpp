@@ -22,7 +22,7 @@ ATarget::ATarget()
 	SkeletalMesh->SetupAttachment(GetRootComponent());
 	SkeletalMesh->SetRelativeScale3D(FVector(0.1f, 1.f, 1.f));
 	SkeletalMesh->SetRelativeLocation(FVector(0.f, 0.f, 40));
-	SkeletalMesh->SetRelativeRotation(FRotator());
+	
 	MovementSpeed = 350;
 	RotationSpeed = 1.f;
 	// XKillPosition = -200.f;
@@ -43,18 +43,20 @@ void ATarget::Tick(float DeltaTime)
 
 	//Move
 	FVector NewLocation = GetActorLocation();
+
 	if (const APlayerController* pc = GetWorld()->GetFirstPlayerController())
-		if (const APawn* Pawnpc = pc->GetPawn()) {
+		if (const APawn* Pawnpc = pc->GetPawn())
+		{
 			const FVector PawnLocation = Pawnpc->GetActorLocation();
 			FVector VectorPtoT = PawnLocation - NewLocation;
 			VectorPtoT.Normalize();
 			VectorPtoT *= FVector(1, 1, 0);
-			
+			/*FRotator newrot = (Pawnpc - GetActorLocation()).Rotation();*/
 			SetActorLocation(NewLocation + VectorPtoT * MovementSpeed * DeltaTime);
 		}
-
+	
 	//Rotate
-	SetActorRotation(GetActorRotation() + FRotator(0, RotationSpeed, 0));
+	/*SetActorRotation(GetActorRotation() + FRotator(0, Pawnpc->GetActorLocation(), 0));*/
 
 	// //kill
 	// if (GetActorLocation().X < XKillPosition)
