@@ -20,7 +20,7 @@ AMyPlayer::AMyPlayer()
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(GetRootComponent());
 	SpringArm->TargetArmLength = 400.f;
-	SpringArm->SetRelativeRotation(FRotator(-15.f, 0.f, 0.f));
+	SpringArm->SetRelativeRotation(FRotator(-15.f, 0.f, 1.f));
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 15.f;
 	SpringArm->bUsePawnControlRotation = true;
@@ -34,6 +34,8 @@ AMyPlayer::AMyPlayer()
 	MaxAmmo = 10;
     MovementSpeed = 1000;
 	Lives = 5;
+	Bounds = 1000;
+	
 	CanRestart = false;
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 	checkRestart = 0;
@@ -67,6 +69,9 @@ void AMyPlayer::Tick(float DeltaTime)
 	FVector NewLocation = GetActorLocation() + (ForwardVector * MovementSpeed * DeltaTime);
 	SetActorLocation(NewLocation);*/
 
+	PlayerPosX = GetActorLocation().X;
+	PlayerPosY = GetActorLocation().Y;
+	
 	AddControllerYawInput(Yaw);
 	AddControllerPitchInput(Pitch);
 
@@ -134,10 +139,50 @@ void AMyPlayer::MouseY(const FInputActionValue& input)
 void AMyPlayer::Forward(const FInputActionValue& input)
 {
     XInput = input.Get<float>();
+
+    if (PlayerPosX >= Bounds)
+    {
+	    SetActorLocation(FVector(PlayerPosX - 50, PlayerPosY, GetActorLocation().Z));
+    }
+	
+    if(PlayerPosX <= -Bounds)
+    {
+    	SetActorLocation(FVector(PlayerPosX + 50, PlayerPosY, GetActorLocation().Z));
+    }
+
+	if (PlayerPosY >= Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX, PlayerPosY - 50, GetActorLocation().Z));
+	}
+	
+	if(PlayerPosY <= -Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX, PlayerPosY  + 50, GetActorLocation().Z));
+	}
 }
 void AMyPlayer::Right(const FInputActionValue& input)
 {
     YInput = input.Get<float>();
+
+	if (PlayerPosX >= Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX - 50, PlayerPosY, GetActorLocation().Z));
+	}
+	
+	if(PlayerPosX <= -Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX + 50, PlayerPosY, GetActorLocation().Z));
+	}
+
+	if (PlayerPosY >= Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX, PlayerPosY - 50, GetActorLocation().Z));
+	}
+	
+	if(PlayerPosY <= -Bounds)
+	{
+		SetActorLocation(FVector(PlayerPosX, PlayerPosY  + 50, GetActorLocation().Z));
+	}
 }
 
 void AMyPlayer::HitByTarget()
@@ -148,15 +193,6 @@ void AMyPlayer::HitByTarget()
 		// TODO : Game over
 	}
 }
-
-// void AMyPlayer::HitByTarget()
-// {
-// 	Lives--;
-// 	if (Lives <= 0)
-// 	{
-// 		// TODO GAME OVER
-// 	}
-// }
 
 void AMyPlayer::Shoot(const FInputActionValue& input)
 {

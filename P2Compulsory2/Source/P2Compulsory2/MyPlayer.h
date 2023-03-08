@@ -61,11 +61,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	int Lives;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
-		bool CanRestart;
+	bool CanRestart;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
-		float checkRestart;
-
-
+	float checkRestart;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	float Bounds;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	float PlayerPosX;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+    float PlayerPosY;
+   
 
 	/** Public Function */
 	void HitByTarget();
