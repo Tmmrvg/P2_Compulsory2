@@ -29,7 +29,7 @@ public:
 	UBoxComponent* Collider {nullptr};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UStaticMeshComponent* StaticMesh;
+	USkeletalMeshComponent * SkeletalMesh;
 
 	UFUNCTION()
 		void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,

@@ -48,7 +48,7 @@ void AP2Compulsory2GameModeBase::Tick(float DeltaTime)
 	if (Clock > WaveSpawnFrequency[CurrentWave - 1] && !GameWon == true)
 	{
 		Clock = 0.f;
-		FVector Location = FVector(FMath::RandRange(MinX, MaxX), FMath::RandRange(MinY, MaxY), 80);
+		FVector Location = FVector(FMath::RandRange(MinX, MaxX), FMath::RandRange(MinY, MaxY), 70);
 
 		// Spawning
 		AActor* Actor = GetWorld()->SpawnActor<AActor>(Target_BP, Location, FRotator::ZeroRotator);

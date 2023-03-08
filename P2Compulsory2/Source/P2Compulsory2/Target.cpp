@@ -5,6 +5,7 @@
 #include "MyPlayer.h"
 #include "Components/BoxComponent.h"
 #include "Engine/StaticMeshSocket.h"
+#include "Components/SkeletalMeshComponent.h"
 
 // Sets default values
 ATarget::ATarget()
@@ -14,16 +15,16 @@ ATarget::ATarget()
 
 	Collider = CreateDefaultSubobject<UBoxComponent>(TEXT("Collider"));
 	SetRootComponent(Collider);
-	Collider->InitBoxExtent(FVector(10, 50, 50));
+	Collider->InitBoxExtent(FVector(100, 100, 100));
 	Collider->OnComponentBeginOverlap.AddDynamic(this, &ATarget::OnOverlap);
 
-	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	StaticMesh->SetupAttachment(GetRootComponent());
-	StaticMesh->SetRelativeScale3D(FVector(0.1f, 1.f, 1.f));
-	StaticMesh->SetRelativeLocation(FVector(0.f, 0.f, -50));
+	SkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("StaticMesh"));
+	SkeletalMesh->SetupAttachment(GetRootComponent());
+	SkeletalMesh->SetRelativeScale3D(FVector(0.1f, 1.f, 1.f));
+	SkeletalMesh->SetRelativeLocation(FVector(0.f, 0.f, 40));
 
 	MovementSpeed = 350;
-	RotationSpeed = 1.f;
+	RotationSpeed = 0.f;
 	XKillPosition = -200.f;
 }
 
@@ -31,7 +32,7 @@ ATarget::ATarget()
 void ATarget::BeginPlay()
 {
 	Super::BeginPlay();
-	RotationSpeed = FMath::RandRange(0.5f, 1.5f);
+	/*RotationSpeed = FMath::RandRange(0.5f, 1.5f);*/
 	MovementSpeed += FMath::RandRange(0, 250);
 }
 

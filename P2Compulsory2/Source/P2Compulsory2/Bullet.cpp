@@ -13,7 +13,7 @@ ABullet::ABullet()
 
 	Collider = CreateDefaultSubobject<USphereComponent>(TEXT("Collider"));
 	SetRootComponent(Collider);
-	Collider->InitSphereRadius(10.f);
+	Collider->InitSphereRadius(20.f);
 	Collider->OnComponentBeginOverlap.AddDynamic(this, &ABullet::OnOverlap);
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
