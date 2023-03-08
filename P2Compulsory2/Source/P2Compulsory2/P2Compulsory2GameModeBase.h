@@ -9,73 +9,69 @@
 
 class ATarget;
  
-struct Wave
-{
-	Wave(int s, int d)
-	{
-		Size = s;
-		Difficulty = d;
-	}
-	int Size;
-	int Difficulty;
-};
+//struct Wave
+//{
+//	Wave(int s, int d)
+//	{
+//		Size = s;
+//		Difficulty = d;
+//	}
+//	int Size;
+//	int Difficulty;
+//};
 UCLASS()
 class P2COMPULSORY2_API AP2Compulsory2GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
-	
-	/**
-	 *
-	 */
-	UCLASS()
-		
-		GENERATED_BODY()
+
 	public:
 		AP2Compulsory2GameModeBase();
-	protected:
-		virtual void BeginPlay() override;
-	public:
-		virtual void Tick(float DeltaTime) override;
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			TArray<int> WaveSize;
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			TArray<float> WaveDifficulty;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			TArray<int> WaveSpawnFrequency;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float minX;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float maxX;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float minY;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float maxY;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			int CurrentWave;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float leftXmin;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float leftXmax;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float behindYmin;
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			float behindYmax;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		TArray<float> WaveDifficulty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		TArray<int> WaveSize;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		TArray<int> WaveSpawnFrequency;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float MinX;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float MaxX;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float MinY;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float MaxY;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		int CurrentWave;
+
+	/** Blueprints: we set these in our blueprint */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		TSubclassOf<ATarget> Target_BP;
+
+private:
+	int LeftToSpawn;
+	float Clock;
+	bool GameWon;
 
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-			TSubclassOf<ATarget> Target_BP;
+	void ChangeWave(int wave);
 
-		void ChangeWave(int wave);
-
-	private:
-		int LefttoSpawn;
-		float clock;
-		float spawnfrequency;
-
-
+	
 
 
 

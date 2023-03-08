@@ -40,12 +40,12 @@ public:
 	void DestroyTarget();
 
 	//Variables
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	UPROPERTY(meta = (AllowPrivateAccess = "true"), EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	float MovementSpeed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	UPROPERTY(meta = (AllowPrivateAccess = "true"), EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	float RotationSpeed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+	UPROPERTY(meta = (AllowPrivateAccess = "true"),EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	float XKillPosition;
 };
