@@ -16,11 +16,11 @@ AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 
 	WaveDifficulty.Add(0.5);
 	WaveDifficulty.Add(1);
-	WaveDifficulty.Add(2);
+	WaveDifficulty.Add(1.5);
 
 	WaveSpawnFrequency.Add(2);
-	WaveSpawnFrequency.Add(1);
-	WaveSpawnFrequency.Add(0.5f);
+	WaveSpawnFrequency.Add(1.5f);
+	WaveSpawnFrequency.Add(1.0f);
 
 	MinX = 2000;
 	MaxX = 2200;
