@@ -62,6 +62,10 @@ public:
 	int Lives;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 		bool CanRestart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		bool GameOver;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 		float checkRestart;
 
