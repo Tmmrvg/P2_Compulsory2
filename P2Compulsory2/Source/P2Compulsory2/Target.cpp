@@ -24,8 +24,8 @@ ATarget::ATarget()
 	SkeletalMesh->SetRelativeLocation(FVector(0.f, 0.f, 40));
 	SkeletalMesh->SetRelativeRotation(FRotator());
 	MovementSpeed = 350;
-	RotationSpeed = 0.f;
-	XKillPosition = -200.f;
+	RotationSpeed = 1.f;
+	// XKillPosition = -200.f;
 }
 
 // Called when the game starts or when spawned
@@ -56,11 +56,11 @@ void ATarget::Tick(float DeltaTime)
 	//Rotate
 	SetActorRotation(GetActorRotation() + FRotator(0, RotationSpeed, 0));
 
-	//kill
-	if (GetActorLocation().X < XKillPosition)
-	{
-		DestroyTarget();
-	}
+	// //kill
+	// if (GetActorLocation().X < XKillPosition)
+	// {
+	// 	DestroyTarget();
+	// }
 }
 
 void ATarget::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
