@@ -23,14 +23,6 @@ UCLASS()
 class P2COMPULSORY2_API AP2Compulsory2GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-	
-	/**
-	 *
-	 */
-	UCLASS()
-		
-		GENERATED_BODY()
 	public:
 		AP2Compulsory2GameModeBase();
 	protected:

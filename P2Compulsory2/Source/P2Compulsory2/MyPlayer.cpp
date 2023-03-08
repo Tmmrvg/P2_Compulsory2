@@ -145,15 +145,6 @@ void AMyPlayer::HitByTarget()
 	}
 }
 
-// void AMyPlayer::HitByTarget()
-// {
-// 	Lives--;
-// 	if (Lives <= 0)
-// 	{
-// 		// TODO GAME OVER
-// 	}
-// }
-
 void AMyPlayer::Shoot(const FInputActionValue& input)
 {
     if (Ammo > 0)

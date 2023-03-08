@@ -2,6 +2,7 @@
 
 
 #include "P2Compulsory2GameModeBase.h"
+#include "Target.h"
 
 AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 {
@@ -57,23 +58,22 @@ void AP2Compulsory2GameModeBase::Tick(float DeltaTime)
 		FVector location = FVector(FMath::RandRange(minX, maxX), FMath::RandRange(minY, maxY), 90);
 		AActor* Actor = GetWorld()->SpawnActor<AActor>(Target_BP, location, FRotator::ZeroRotator);
 		ATarget* Target1 = Cast<ATarget>(Actor);
-		Target1->Enemyspeed *= WaveDifficulty[CurrentWave - 1];
+		Target1->MovementSpeed *= WaveDifficulty[CurrentWave - 1];
 		
 		if (LefttoSpawn <= 0)
 		{
 			ChangeWave(CurrentWave + 1);
 		}
 
-		/*if(LefttoSpawn <= 0)
+		if(LefttoSpawn <= 0)
 		{
 			ChangeWave(CurrentWave + 1);
-		}*/
+		}
 
 
 	}
 	if (clock > WaveSpawnFrequency[CurrentWave - 1])
 	{
-
 
 
 	}
