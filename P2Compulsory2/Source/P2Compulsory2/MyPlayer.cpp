@@ -192,7 +192,7 @@ void AMyPlayer::HitByTarget()
 	{
 		GameOver = true;
 		return;
-		// TODO : Game over
+		
 	}
 }
 

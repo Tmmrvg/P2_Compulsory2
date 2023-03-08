@@ -69,6 +69,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 		float checkRestart;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float PlayerPosX;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float PlayerPosY;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float Bounds;
+
 
 
 	/** Public Function */

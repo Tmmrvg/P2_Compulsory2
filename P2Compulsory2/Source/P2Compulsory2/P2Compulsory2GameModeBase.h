@@ -6,7 +6,6 @@
 #include "GameFramework/GameModeBase.h"
 #include "P2Compulsory2GameModeBase.generated.h"
 
-
 class ATarget;
 struct FInputActionValue;
 //struct Wave
@@ -67,8 +66,8 @@ public:
 		TSubclassOf<ATarget> Target_BP;
 
 	/** Blueprints: we set these in our blueprint */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
-		TSubclassOf<AMyPlayer> Player_BP;
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		TSubclassOf<AMyPlayer> Player_BP;*/
 	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
