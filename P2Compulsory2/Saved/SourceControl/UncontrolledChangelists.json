@@ -5,6 +5,7 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/Programming_02/Prog2_Compulsory2/P2Compulsory2/P2_Compulsory2/P2Compulsory2/Content/Input/MappingContext.uasset",
 				"C:/Users/larss/Documents/Github repositories/P2_Compulsory2/P2Compulsory2/Content/Maps/Level.umap",
 				"C:/Users/larss/Documents/Github repositories/P2_Compulsory2/P2Compulsory2/Content/Blueprints/Spaceinvader_BP.uasset",
 				"C:/Users/larss/Documents/Github repositories/P2_Compulsory2/P2Compulsory2/Content/Blueprints/MySpaceInvaderHUD_BP.uasset",
