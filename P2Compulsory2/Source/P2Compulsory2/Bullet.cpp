@@ -23,6 +23,7 @@ ABullet::ABullet()
 	MovementSpeed = 2000.f;
 	TimeLived = 0.f;
 	LifeSpan = 10.f;
+	
 }
 
 // Called when the game starts or when spawned
@@ -58,6 +59,7 @@ void ABullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherA
 
 		//Destroys bullet
 		DestroyBullet();
+		
 	}
 }
 

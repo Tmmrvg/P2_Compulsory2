@@ -60,6 +60,11 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	int Lives;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		bool CanRestart;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float checkRestart;
+
 
 
 	/** Public Function */
@@ -85,6 +90,7 @@ private:
 
 	void Shoot(const FInputActionValue& input);
 	void Reload(const FInputActionValue& input);
+	void Restart(const FInputActionValue& input);
 
 public:
 	//Input
@@ -109,4 +115,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
 	class UInputAction* MouseYInput;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+		class UInputAction* RestartInput;
 };

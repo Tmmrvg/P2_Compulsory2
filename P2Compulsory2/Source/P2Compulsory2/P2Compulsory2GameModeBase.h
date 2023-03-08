@@ -6,9 +6,9 @@
 #include "GameFramework/GameModeBase.h"
 #include "P2Compulsory2GameModeBase.generated.h"
 
-
+class AMyPlayer;
 class ATarget;
- 
+struct FInputActionValue;
 //struct Wave
 //{
 //	Wave(int s, int d)
@@ -59,18 +59,26 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 		int CurrentWave;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
+		float Boolcheck;
+
 	/** Blueprints: we set these in our blueprint */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 		TSubclassOf<ATarget> Target_BP;
+	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = InputSystem)
+		class UInputAction* restart;
 
 private:
 	int LeftToSpawn;
 	float Clock;
+	UPROPERTY(meta = (AllowPrivateAccess = "true"), EditAnywhere, BlueprintReadWrite, Category = Bullet)
 	bool GameWon;
 
 
 	void ChangeWave(int wave);
-
+	void Restart();
 	
 
 

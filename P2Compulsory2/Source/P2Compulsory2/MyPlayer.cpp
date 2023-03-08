@@ -34,9 +34,12 @@ AMyPlayer::AMyPlayer()
 	MaxAmmo = 10;
     MovementSpeed = 1000;
 	Lives = 5;
-
+	CanRestart = false;
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	checkRestart = 0;
+
 }
+
 
 // Called when the game starts or when spawned
 void AMyPlayer::BeginPlay()
@@ -111,6 +114,7 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
         EnhanceInputCom->BindAction(MouseYInput, ETriggerEvent::Completed, this, &AMyPlayer::MouseY);
         EnhanceInputCom->BindAction(ShootInput, ETriggerEvent::Started, this, &AMyPlayer::Shoot);
         EnhanceInputCom->BindAction(ReloadInput, ETriggerEvent::Started, this, &AMyPlayer::Reload);
+		EnhanceInputCom->BindAction(RestartInput, ETriggerEvent::Started, this, &AMyPlayer::Restart);
     }
 }
 
@@ -178,4 +182,10 @@ void AMyPlayer::Shoot(const FInputActionValue& input)
 void AMyPlayer::Reload(const FInputActionValue& input)
 {
 	Ammo = MaxAmmo;
+}
+
+void AMyPlayer::Restart(const FInputActionValue& input)
+{
+	CanRestart = true;
+	checkRestart = 1;
 }

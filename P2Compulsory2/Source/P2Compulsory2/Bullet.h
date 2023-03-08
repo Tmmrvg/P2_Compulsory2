@@ -40,6 +40,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "My Variables")
 	float LifeSpan;
+	
 
 	
 

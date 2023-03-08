@@ -3,8 +3,13 @@
 
 #include "P2Compulsory2GameModeBase.h"
 #include "Target.h"
+#include "MyPlayer.h"
+
+AMyPlayer* Player;
+
 AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 {
+	
 
 	PrimaryActorTick.bCanEverTick = true;
 	WaveSize.Add(10);
@@ -25,8 +30,8 @@ AP2Compulsory2GameModeBase::AP2Compulsory2GameModeBase()
 	MinY = -400;
 	MaxY = 400;
 	GameWon = false;
-
-
+	Boolcheck = 0;
+	
 }
 
 void AP2Compulsory2GameModeBase::BeginPlay()
@@ -65,13 +70,23 @@ void AP2Compulsory2GameModeBase::Tick(float DeltaTime)
 void AP2Compulsory2GameModeBase::ChangeWave(int wave)
 {
 	if (WaveSize.Num() < wave)
-	{
+	{	Boolcheck = 1;
 		// Game Won
 		GameWon = true;
+		
 		return;
 	}
 
 	CurrentWave = wave;
 	LeftToSpawn = WaveSize[CurrentWave - 1];
 
+}
+
+void AP2Compulsory2GameModeBase::Restart()
+{
+	if (GameWon && Player->CanRestart) {
+		CurrentWave = 0;
+		Player->CanRestart = false;
+		GameWon = false;
+	}
 }
